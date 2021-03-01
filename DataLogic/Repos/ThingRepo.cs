@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using ThingsWeNeed.DataLogic.Models;
 
 namespace ThingsWeNeed.DataLogic.Repos
@@ -10,6 +11,11 @@ namespace ThingsWeNeed.DataLogic.Repos
         public ThingRepo(ThingsWeNeedContext context)
         {
             _context = context;
+        }
+
+        public Thing GetThingByName(string name)
+        {
+            return _context.Things.FirstOrDefault(p => p.Name == name);
         }
 
         public void CreateThing(Thing thing)
