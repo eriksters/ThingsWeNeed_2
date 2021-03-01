@@ -19,10 +19,18 @@ namespace ThingsWeNeed.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        public ActionResult<string> GetThing() 
+        [HttpGet("{name}")]
+        public ActionResult<string> GetThingByName(string name) 
         {
-            return Ok("All is good in the hood");
+            Thing thingModel = _repo.GetThingByName(name);
+
+            if (thingModel == null) {
+                return NotFound();
+            }
+
+            ThingGetDto thingDto = _mapper.Map<ThingGetDto>(thingModel);
+
+            return Ok(thingDto);
         }
 
         [HttpPost]

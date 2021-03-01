@@ -8,6 +8,7 @@ namespace ThingsWeNeed.API.Profiles
     {
         public ThingsProfile() {
             CreateMap<ThingCreateDto, Thing>();
+            CreateMap<Thing, ThingGetDto>();
         }
     }
 }
