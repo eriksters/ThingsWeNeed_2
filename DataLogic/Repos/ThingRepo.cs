@@ -12,6 +12,10 @@ namespace ThingsWeNeed.DataLogic.Repos
         {
             _context = context;
         }
+        public bool ThingNameIsValid(string name)
+        {
+            return GetThingByName(name) == null;
+        }
 
         public Thing GetThingByName(string name)
         {

@@ -20,11 +20,14 @@ namespace ThingsWeNeed.Test.Mocks
             return;
         }
 
-        
-
         public void SaveChanges() 
         {
             return;
+        }
+
+        public bool ThingNameIsValid(string name)
+        {
+            return true;
         }
     }
 }
