@@ -11,6 +11,20 @@ namespace ThingsWeNeed.DataLogic
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        {
+            var things = modelBuilder.Entity<Thing>();
+            
+            things.HasKey(p => new { p.Id });
+
+            things.Property(p => p.Needed)
+                .IsRequired();
+
+            things.Property(p => p.Name)
+                .IsRequired()
+                .HasMaxLength(40);
+        }
+
         public DbSet<Thing> Things { get; set; }
     }
 }

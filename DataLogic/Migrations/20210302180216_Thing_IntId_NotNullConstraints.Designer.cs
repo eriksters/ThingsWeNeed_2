@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ThingsWeNeed.DataLogic;
 
 namespace DataLogic.Migrations
 {
     [DbContext(typeof(ThingsWeNeedContext))]
-    partial class ThingsWeNeedContextModelSnapshot : ModelSnapshot
+    [Migration("20210302180216_Thing_IntId_NotNullConstraints")]
+    partial class Thing_IntId_NotNullConstraints
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
